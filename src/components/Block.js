@@ -8,7 +8,9 @@ const Block = ({ setBlock, block, rgb }) => {
 
   const { red, green, blue } = rgb;
 
-  block.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+  if (block) {
+    block.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+  }
 
   return <div id="block"></div>;
 };
