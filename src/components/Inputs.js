@@ -27,13 +27,13 @@ const Inputs = ({ rgb, onChange, onSubmit, onCancel }) => {
           />
         </label>
         <label>
-          <p>{rgb.black}</p>
+          <p>{rgb.blue}</p>
           <input
             type="range"
             min="0"
             max="255"
-            value={rgb.black}
-            name="black"
+            value={rgb.blue}
+            name="blue"
             onChange={onChange}
           />
         </label>{" "}

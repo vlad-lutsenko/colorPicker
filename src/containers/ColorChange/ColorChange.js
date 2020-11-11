@@ -4,16 +4,15 @@ import Block from "../../components/Block";
 import Inputs from "../../components/Inputs";
 
 const ColorChange = () => {
-  const [blockColor, setBlockColor] = useState({ red: 0, green: 0, black: 0 });
-  const [rgb, setRgb] = useState({ red: 0, green: 0, black: 0 });
+  const [blockColor, setBlockColor] = useState({ red: 0, green: 0, blue: 0 });
+  const [rgb, setRgb] = useState({ red: 0, green: 0, blue: 0 });
+
   const [block, setBlock] = useState("");
   const [controls, setControls] = useState(false);
 
   const onChange = (e) => {
     const { name, value } = e.target;
     setRgb({ ...rgb, [name]: Number(value) });
-    const { red, green, black } = rgb;
-    block.style.backgroundColor = `rgb(${red}, ${green}, ${black})`;
   };
 
   const controlsToggle = () => {
@@ -21,9 +20,9 @@ const ColorChange = () => {
   };
 
   const onCancel = () => {
-    const { red, green, black } = blockColor;
+    const { red, green, blue } = blockColor;
     setRgb(blockColor);
-    block.style.backgroundColor = `rgb(${red}, ${green}, ${black})`;
+    block.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     controlsToggle();
   };
 
@@ -39,7 +38,7 @@ const ColorChange = () => {
 
   return (
     <>
-      <Block setBlock={setBlock} />
+      <Block setBlock={setBlock} block={block} rgb={rgb} />
       {controls && (
         <Inputs
           rgb={rgb}
